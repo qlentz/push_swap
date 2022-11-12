@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 23:52:24 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/12 22:33:38 by qlentz           ###   ########.fr       */
+/*   Created: 2022/11/12 22:30:29 by qlentz            #+#    #+#             */
+/*   Updated: 2022/11/12 22:33:41 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(char *s)
+void	free_stack(t_stack *s)
 {
-	ft_putstr_fd(s, STDERR_FILENO);
-	exit(1);
+	free(s->stack);
+	free(s);
+}
+
+void	free_ps(t_pushswap *ps)
+{
+	free_stack(ps->a);
+	free_stack(ps->b);
 }

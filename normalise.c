@@ -1,19 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   normalise.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 23:52:24 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/12 22:33:38 by qlentz           ###   ########.fr       */
+/*   Created: 2022/11/12 22:35:45 by qlentz            #+#    #+#             */
+/*   Updated: 2022/11/12 22:47:46 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(char *s)
+int	count_pos(int n, t_stack *s)
 {
-	ft_putstr_fd(s, STDERR_FILENO);
-	exit(1);
+	int	i;
+	int	norm;
+
+	i = 0;
+	norm = 0;
+	while (i < s->size)
+	{
+		if (s->stack[i] < n)
+			norm++;
+		i++;
+	}
+	norm++;
+	return (norm);
+}
+t_stack	*normalise(t_stack *s)
+{
+	t_stack	*new;
+	int		i;
+
+	i = 0;
+	new = empty(s->size + 1);
+	while (i < s->size)
+	{
+		new->stack[i] = count_pos(s->stack[i], s);
+		i++;
+	}
+	new->top = s->top;
+	free_stack(s);
+	return (new);
 }
