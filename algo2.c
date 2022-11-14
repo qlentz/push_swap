@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:00:20 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 22:23:22 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/14 22:54:20 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,10 @@ void	shift_stack(t_pushswap *ps)
 void	sort(t_pushswap *ps)
 {
 	push_save_3(ps);
-	print_stack(ps->a);
-	print_stack(ps->b);
 	small_algo(ps);
-	printf("after small:\n");
-	print_stack(ps->a);
-	printf("begin algo:\n");
 	while (ps->b->size - ps->b->top > 0)
 	{
-		printf("cheapest b:%i\n", cheapest_b(ps));
 		best_move(cheapest_b(ps), ps);
-		print_stack(ps->a);
-		print_stack(ps->b);
-		printf("-------\n");
 	}
 	if (!is_sorted(ps->a))
 		shift_stack(ps);

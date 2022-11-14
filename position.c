@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:00:37 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 22:28:01 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/14 22:51:19 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int		get_target_pos(t_stack *a, int b_val)
 	int	i;
 
 	i = -1;
-	target = a->size;
+	target = a->size + 1;
 	while (++i < a->size - a->top)
 	{
 		if ((a->stack[a->top + i] > b_val) && (a->stack[a->top + i] < target))
 			target = a->stack[a->top + i];
 	}
-	if (target != a->size)
+	if (target != a->size + 1)
 		return (get_pos(target, a));
 	i = -1;
 	while (++i < a->size - a->top)
@@ -96,9 +96,7 @@ void	best_move(int b, t_pushswap *ps)
 	int m_b;
 
 	m_a = cost(get_target_pos(ps->a, b), ps->a);
-	printf("m_a: %i ", m_a);
 	m_b = cost(get_pos(b, ps->b), ps->b);
-	printf("m_b: %i\n", m_b);
 	if (m_a < 0 && m_b < 0)
 	{
 		while (m_a < 0 && m_b < 0)

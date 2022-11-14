@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:58:07 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 21:57:37 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/14 23:16:54 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ int	main(int ac, char **av)
 	t_pushswap	ps;
 
 	ps = ps_init(ac, av);
-	//print_stack(ps.a);
+	print_stack(ps.a);
 	sort(&ps);
-	printf("sorted:\n");
 	print_stack(ps.a);
 	free_ps(&ps);
 	return (0);
