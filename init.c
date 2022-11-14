@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:03:37 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/12 22:46:18 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/14 16:04:02 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 t_stack	*empty(int ac)
 {
 	t_stack	*stack;
+	int		i;
 
+	i = -1;
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
@@ -26,6 +28,8 @@ t_stack	*empty(int ac)
 		return (NULL);
 	}
 	stack->size = ac - 1;
+	while (++i < stack->size)
+		stack->stack[i] = 0;
 	stack->top = ac - 1;
 	return (stack);
 }
@@ -34,20 +38,15 @@ t_pushswap	ps_init(int ac, char **av)
 {
 	t_pushswap	ps;
 
-	ps.a = normalise(parse_args(ac, av));
-	ps.b = empty(ac);
-	if (!ps.b)
+	if (ac == 2)
 	{
-		free(ps.a->stack);
-		free(ps.a);
-		error("malloc error");
+		ps.a = normalise(one_arg(av[1]));
+		ps.b = empty(ps.a->size + 1);
 	}
-	if (!ps.b->stack)
+	else
 	{
-		free(ps.a->stack);
-		free(ps.a);
-		free(ps.b);
-		error("malloc error");
+		ps.a = normalise(parse_args(ac, av));
+		ps.b = empty(ac);
 	}
 	return (ps);
 }
