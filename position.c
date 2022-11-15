@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:00:37 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 22:51:19 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:02:35 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int		get_pos(int n, t_stack *s)
 
 int		get_target_pos(t_stack *a, int b_val)
 {
-	int	target;
 	int	i;
-
+	int target;
+	
 	i = -1;
 	target = a->size + 1;
 	while (++i < a->size - a->top)
@@ -122,7 +122,7 @@ void	best_move(int b, t_pushswap *ps)
 			ra(1, ps);
 			m_a--;
 		}
-		if (m_b-- > 0)
+		if (m_b > 0)
 		{
 			rb(1, ps);
 			m_b--;

@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:56:35 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 21:59:27 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:31:38 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void		print_stack(t_stack *s);
 void		free_stack(t_stack *s);
 void		free_ps(t_pushswap *ps);
 int			format_ok(char **av);
-int			is_sorted(t_stack *stack);
+int			is_sorted(t_stack *stack)
+int			check_double(t_stack *s);
 int			is_biggest(int n, t_stack *s);
 t_stack		*parse_args(int ac, char **av);
 t_stack		*one_arg(char *args);
@@ -62,6 +63,6 @@ int			cost(int pos, t_stack *s);
 int 		total_cost(int b, t_pushswap *ps);
 int 		cheapest_b(t_pushswap *ps);
 void		best_move(int b, t_pushswap *ps);
-void	shift_stack(t_pushswap *ps);
+void		shift_stack(t_pushswap *ps);
 void		sort(t_pushswap *ps);
 #endif

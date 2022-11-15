@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:41:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 23:46:46 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:32:24 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	format_ok(char **av)
 
 	i = 0;
 	j = 0;
+	if (*av == NULL)
+		return (0);
 	while (av[++i])
 	{
 		if (av[i][j] == '+' || av[i][j] == '-')
@@ -93,7 +95,7 @@ t_stack	*one_arg(char *args)
 	char	**av;
 
 	i = -1;
-	av = ft_split(args, ' ');
+	av = ft_split(args, '\n');
 	stack = (t_stack *)malloc(sizeof(stack));
 	if (!stack)
 		error("malloc failed");

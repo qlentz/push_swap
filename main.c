@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:58:07 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 00:02:25 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:01:35 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int ac, char **av)
 	ps = ps_init(ac, av);
 	//print_stack(ps.a);
 	sort(&ps);
-	//print_stack(ps.a);
 	free_ps(&ps);
 	return (0);
 }

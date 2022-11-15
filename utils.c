@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:46:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/14 21:54:16 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:29:52 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,25 @@ void	print_stack(t_stack *s)
 	{
 		ft_printf("%i\n", s->stack[i]);
 	}
+}
+
+int	check_double(t_stack *s)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < s->size)
+	{
+		while (j < i)
+		{
+			if (s->stack[j] == s->stack[i])
+				return (1);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (0);
 }
