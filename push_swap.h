@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:56:35 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 11:34:38 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:53:26 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_pushswap {
 	t_stack	*b;
 }				t_pushswap;
 
-int 		abs(int n);
+int			abs(int n);
 void		error(char *s);
 void		print_stack(t_stack *s);
 void		free_stack(t_stack *s);
@@ -54,15 +54,20 @@ void		rr(t_pushswap *ps);
 void		rra(int n, t_pushswap *ps);
 void		rrb(int n, t_pushswap *ps);
 void		rrr(t_pushswap *ps);
+void		do_rrr(t_pushswap *ps, int *m_a, int *m_b);
+void		do_rr(t_pushswap *ps, int *m_a, int *m_b);
+void		do_ro(t_pushswap *ps, int *m_a, int *m_b);
+void		do_rro(t_pushswap *ps, int *m_a, int *m_b);
 void		small_algo(t_pushswap *ps);
 void		push_save_3(t_pushswap *ps);
 int			get_lowest_index_position(t_stack *s);
 int			get_pos(int n, t_stack *s);
 int			get_target_pos(t_stack *a, int b_val);
 int			cost(int pos, t_stack *s);
-int 		total_cost(int b, t_pushswap *ps);
-int 		cheapest_b(t_pushswap *ps);
+int			total_cost(int b, t_pushswap *ps);
+int			cheapest_b(t_pushswap *ps);
 void		best_move(int b, t_pushswap *ps);
 void		shift_stack(t_pushswap *ps);
 void		sort(t_pushswap *ps);
+
 #endif

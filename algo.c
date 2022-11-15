@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:00:20 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 11:05:13 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:28:56 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	small_algo(t_pushswap *ps)
 {
 	if (is_biggest(ps->a->stack[ps->a->top], ps->a) == 1)
-		ra(1,ps);
+		ra(1, ps);
 	else if (is_biggest(ps->a->stack[ps->a->top + 1], ps->a) == 1)
-		rra(1,ps);
+		rra(1, ps);
 	if (ps->a->stack[ps->a->top] > ps->a->stack[ps->a->top + 1])
-		sa(1,ps);
+		sa(1, ps);
 }
 
 void	push_save_3(t_pushswap *ps)

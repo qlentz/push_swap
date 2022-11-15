@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 22:35:45 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/12 22:47:46 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:34:26 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	count_pos(int n, t_stack *s)
 	norm++;
 	return (norm);
 }
+
 t_stack	*normalise(t_stack *s)
 {
 	t_stack	*new;

@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:46:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 11:29:52 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:53:54 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	is_biggest(int n, t_stack *s)
 	return (1);
 }
 
-int abs(int n)
+int	abs(int n)
 {
 	if (n < 0)
 		return (n * -1);

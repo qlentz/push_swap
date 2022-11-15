@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:41:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 11:38:55 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 18:32:00 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,12 @@ t_stack	*one_arg(char *args)
 	}
 	stack->size = count_args(av);
 	while (av[++i])
-	{
 		stack->stack[i] = ft_atoi(av[i]);
-	}
 	stack->top = 0;
 	if (!format_ok(av))
 	{
 		ft_free_tab(av);
+		free_stack(stack);
 		error("Error");
 	}
 	ft_free_tab(av);

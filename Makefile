@@ -8,7 +8,7 @@ LIBFT = libft
 
 SRCS = free.c parse.c error.c init.c swap.c push.c rotate.c \
 		normalise.c reverse_rotate.c utils.c algo.c \
-		position.c main.c
+		position.c moves.c main.c
 
 OBJS = $(SRCS:.c=.o)
 

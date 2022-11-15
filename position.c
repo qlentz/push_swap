@@ -6,13 +6,13 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:00:37 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 11:02:35 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:47:23 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		get_pos(int n, t_stack *s)
+int	get_pos(int n, t_stack *s)
 {
 	int	i;
 
@@ -22,11 +22,11 @@ int		get_pos(int n, t_stack *s)
 	return (i);
 }
 
-int		get_target_pos(t_stack *a, int b_val)
+int	get_target_pos(t_stack *a, int b_val)
 {
 	int	i;
-	int target;
-	
+	int	target;
+
 	i = -1;
 	target = a->size + 1;
 	while (++i < a->size - a->top)
@@ -56,7 +56,7 @@ int	cost(int pos, t_stack *s)
 		return (pos);
 }
 
-int total_cost(int b, t_pushswap *ps)
+int	total_cost(int b, t_pushswap *ps)
 {
 	int	a_cost;
 	int	b_cost;
@@ -68,10 +68,10 @@ int total_cost(int b, t_pushswap *ps)
 	return (tot);
 }
 
-int cheapest_b(t_pushswap *ps)
+int	cheapest_b(t_pushswap *ps)
 {
 	int	cost;
-	int best;
+	int	best;
 	int	i;
 	int	b;
 
@@ -88,58 +88,4 @@ int cheapest_b(t_pushswap *ps)
 		}
 	}
 	return (b);
-}
-
-void	best_move(int b, t_pushswap *ps)
-{
-	int	m_a;
-	int m_b;
-
-	m_a = cost(get_target_pos(ps->a, b), ps->a);
-	m_b = cost(get_pos(b, ps->b), ps->b);
-	if (m_a < 0 && m_b < 0)
-	{
-		while (m_a < 0 && m_b < 0)
-		{
-			rrr(ps);
-			m_a++;
-			m_b++;
-		}
-	}
-	if (m_a > 0 && m_b > 0)
-	{
-		while (m_a > 0 && m_b > 0)
-		{
-			rr(ps);
-			m_a--;
-			m_b--;
-		}
-	}
-	while (m_a > 0 || m_b > 0)
-	{
-		if (m_a > 0)
-		{
-			ra(1, ps);
-			m_a--;
-		}
-		if (m_b > 0)
-		{
-			rb(1, ps);
-			m_b--;
-		}
-	}
-	while (m_a < 0 || m_b < 0)
-	{
-		if (m_a < 0)
-		{
-			rra(1, ps);
-			m_a++;
-		}
-		if (m_b < 0)
-		{
-			rrb(1, ps);
-			m_b++;
-		}
-	}
-	pa(ps);
 }
