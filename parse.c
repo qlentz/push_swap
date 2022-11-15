@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:41:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 11:32:24 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:38:55 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_stack	*one_arg(char *args)
 	char	**av;
 
 	i = -1;
-	av = ft_split(args, '\n');
+	av = ft_split(args, ' ');
 	stack = (t_stack *)malloc(sizeof(stack));
 	if (!stack)
 		error("malloc failed");

@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:00:20 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 00:04:24 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/15 11:38:03 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	sort(t_pushswap *ps)
 {
 	push_save_3(ps);
 	small_algo(ps);
-	printf("end save3 and small alg\n");
 	while (ps->b->size - ps->b->top > 0)
 	{
 		best_move(cheapest_b(ps), ps);
