@@ -1,4 +1,4 @@
-NAME = pushswap
+NAME = push_swap
 
 CC = gcc
 
@@ -8,7 +8,7 @@ LIBFT = libft
 
 SRCS = free.c parse.c error.c init.c swap.c push.c rotate.c \
 		normalise.c reverse_rotate.c utils.c algo.c \
-		position.c moves.c main.c
+		position.c moves.c check_int.c main.c
 
 OBJS = $(SRCS:.c=.o)
 

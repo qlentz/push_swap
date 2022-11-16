@@ -6,25 +6,29 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:41:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/15 18:32:00 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/16 22:36:36 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	format_ok(char **av)
+int	format_ok(char **av, int n)
 {
 	int	i;
 	int	j;
 
-	i = 0;
+	i = n;
 	j = 0;
 	if (*av == NULL)
+		exit(0);
+	if (!check_int(av))
 		return (0);
 	while (av[++i])
 	{
 		if (av[i][j] == '+' || av[i][j] == '-')
 			j++;
+		if (!av[i][j])
+			return (0);
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
@@ -42,7 +46,7 @@ t_stack	*parse_args(int ac, char **av)
 	t_stack	*stack;
 
 	i = 0;
-	if (!format_ok(av))
+	if (!format_ok(av, 0))
 		error("Error");
 	stack = (t_stack *)malloc(sizeof(stack));
 	if (!stack)
@@ -96,6 +100,11 @@ t_stack	*one_arg(char *args)
 
 	i = -1;
 	av = ft_split(args, ' ');
+	if (!format_ok(av, -1))
+	{
+		ft_free_tab(av);
+		error("Error");
+	}
 	stack = (t_stack *)malloc(sizeof(stack));
 	if (!stack)
 		error("malloc failed");
@@ -109,12 +118,6 @@ t_stack	*one_arg(char *args)
 	while (av[++i])
 		stack->stack[i] = ft_atoi(av[i]);
 	stack->top = 0;
-	if (!format_ok(av))
-	{
-		ft_free_tab(av);
-		free_stack(stack);
-		error("Error");
-	}
 	ft_free_tab(av);
 	return (stack);
 }
