@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:03:37 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/16 22:16:09 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/17 15:59:39 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ t_pushswap	ps_init(int ac, char **av)
 	}
 	return (ps);
 }
-

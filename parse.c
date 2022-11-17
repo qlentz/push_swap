@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:41:53 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/16 22:36:36 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/17 16:11:31 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ t_stack	*one_arg(char *args)
 	int		i;
 	t_stack	*stack;
 	char	**av;
+	int		stack_size;
 
 	i = -1;
 	av = ft_split(args, ' ');
@@ -105,16 +106,9 @@ t_stack	*one_arg(char *args)
 		ft_free_tab(av);
 		error("Error");
 	}
-	stack = (t_stack *)malloc(sizeof(stack));
-	if (!stack)
-		error("malloc failed");
-	stack->stack = (int *)malloc(sizeof(int) * (count_args(av)));
-	if (!stack->stack)
-	{
-		free(stack);
-		error("malloc failed");
-	}
-	stack->size = count_args(av);
+	stack_size = count_args(av);
+	stack = stack_init(stack_size);
+	stack->size = stack_size;
 	while (av[++i])
 		stack->stack[i] = ft_atoi(av[i]);
 	stack->top = 0;

@@ -6,7 +6,7 @@
 /*   By: qlentz <qlentz@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:56:35 by qlentz            #+#    #+#             */
-/*   Updated: 2022/11/16 22:21:11 by qlentz           ###   ########.fr       */
+/*   Updated: 2022/11/17 16:13:24 by qlentz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int			is_sorted(t_stack *stack);
 int			check_double(t_stack *s);
 int			check_int(char **av);
 int			is_biggest(int n, t_stack *s);
+t_stack		*stack_init(int size);
 t_stack		*parse_args(int ac, char **av);
 t_stack		*one_arg(char *args);
 t_stack		*empty(int ac);

@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+t_stack	*stack_init(int size)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(stack));
+	if (!stack)
+		error("malloc failed");
+	stack->stack = (int *)malloc(sizeof(int) * size);
+	if (!stack->stack)
+	{
+		free(stack);
+		error("malloc failed");
+	}
+	return (stack);
+}
+
 static long long	ft_atol(const char *str)
 {
 	int			i;
